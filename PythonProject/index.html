@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Загрузка файлов</title>
+</head>
+<body>
+    <div class="header">
+        <span class="red">dag</span><span class="blue">image</span>
+    </div>
+
+    <div class="container">
+        <h1>Загрузите ваш файл</h1>
+        <form id="uploadForm">
+            <input type="file" id="fileInput" name="file" accept="image/*" required>
+            <button type="submit">Загрузить</button>
+        </form>
+        <div class="line"></div>
+
+        <div class="gallery-container" id="gallery">
+            <p>Галерея</p>
+            <div id="imageLinks"></div> <!-- Контейнер для ссылок на изображения -->
+        </div>
+
+        <div class="formats">
+            Поддерживаемые форматы: APNG, BMP, GIF, JPG, JPEG, PNG
+        </div>
+
+        <div class="popup" id="popup">
+            <button id="galleryButton">Выбрать из галереи</button>
+            <button id="attachButton">Прикрепить файл</button>
+            <button id="cameraButton">Сделать фото</button>
+        </div>
+
+        <div class="line"></div>
+    </div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы
+
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageUrl = e.target.result; // URL изображения
+                    const imageLinksContainer = document.getElementById('imageLinks');
+                    const linkElement = document.createElement('a');
+                    linkElement.href = imageUrl;
+                    linkElement.textContent = 'Ссылка на изображение';
+                    linkElement.target = '_blank'; // Открывать в новой вкладке
+                    imageLinksContainer.appendChild(linkElement);
+                    imageLinksContainer.appendChild(document.createElement('br')); // Отступ между ссылками
+                };
+                reader.readAsDataURL(file); // Читаем файл как Data URL
+            }
+        });
+
+        document.getElementById('gallery').addEventListener('click', function() {
+            const popup = document.getElementById('popup');
+            popup.classList.toggle('show');
+        });
+
+        document.getElementById('galleryButton').addEventListener('click', function() {
+            document.getElementById('fileInput').click();
+        });
+
+        document.getElementById('attachButton').addEventListener('click', function() {
+            alert('Файл прикреплен!');
+        });
+
+        document.getElementById('cameraButton').addEventListener('click', function() {
+            alert('Открытие камеры...');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+body {
+    background-color: #121212; /* Темный фон для всего тела */
+    color: #ffffff; /* Белый цвет текста */
+    font-family: 'Arial', sans-serif; /* Шрифт */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирование по горизонтали */
+    justify-content: center; /* Центрирование по вертикали */
+    height: 100vh; /* Высота на весь экран */
+}
+
+.header {
+    position: absolute; /* Фиксация вверху */
+    top: 10px; /* Отступ сверху */
+    left: 20px; /* Отступ слева */
+    font-size: 24px; /* Размер шрифта */
+}
+
+.red {
+    color: red; /* Красный цвет для части текста */
+}
+
+.blue {
+    color: blue; /* Синий цвет для части текста */
+}
+
+.container {
+    text-align: center; /* Центрирование текста внутри контейнера */
+    background-color: #1e1e1e; /* Цвет фона для контейнера */
+    padding: 20px; /* Отступы внутри контейнера */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Тень для глубины */
+}
+
+h1 {
+    font-size: 24px; /* Размер заголовка */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+input[type="file"] {
+    margin: 10px 0; /* Отступы сверху и снизу */
+    padding: 10px; /* Отступы внутри поля */
+    border: none; /* Убираем стандартные рамки */
+    border-radius: 5px; /* Закругленные углы */
+    background-color: #333; /* Цвет фона для поля */
+    color: #fff; /* Цвет текста */
+}
+
+button {
+    background-color: #ff4081; /* Цвет кнопки */
+    color: white; /* Цвет текста кнопки */
+    border: none; /* Убираем стандартные рамки */
+    border-radius: 5px; /* Закругленные углы */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.3s
